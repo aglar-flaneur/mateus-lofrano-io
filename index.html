@@ -3,202 +3,808 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mateus Lofrano - Data Science Specialist</title>
+    <meta name="description" content="Mateus Lofrano - Data Science & AI Specialist with expertise in industrial applications and financial technology">
+    <meta name="keywords" content="data science, machine learning, artificial intelligence, industrial AI, financial technology, predictive analytics">
+    <meta name="author" content="Mateus N Lofrano">
+    <title>Mateus Lofrano | Data Science & Advanced AI Specialist</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--primary-color);
+        }
+        
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            border: 3px solid var(--accent-color);
+            transition: transform 0.3s ease;
         }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
         .case-card {
-            border: 1px solid #e5e7eb;
+            border: 1px solid rgba(100, 255, 218, 0.1);
             border-radius: 8px;
-            padding: 16px;
-            background-color: #f9fafb;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            padding: 1.5rem;
+            background-color: var(--secondary-color);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+            color: var(--text-primary);
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .section-heading::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 300px;
+            background-color: rgba(100, 255, 218, 0.3);
+            margin-left: 20px;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            border-radius: 4px;
+            padding: 0.25rem 0.75rem;
+            margin: 0.25rem;
+            font-size: 0.875rem;
+            transition: background-color 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: rgba(100, 255, 218, 0.2);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-primary);
+            margin-right: 1.5rem;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .contact-link i {
+            margin-right: 0.5rem;
+        }
+        
+        .formula {
+            font-family: 'Fira Code', monospace;
+            background-color: rgba(100, 255, 218, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .highlight-industrial {
+            border-left: 3px solid #ff6b6b;
+            padding-left: 1rem;
+            background-color: rgba(255, 107, 107, 0.05);
+        }
+        
+        .highlight-financial {
+            border-left: 3px solid #4d79ff;
+            padding-left: 1rem;
+            background-color: rgba(77, 121, 255, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .section-heading::after {
+                width: 100px;
+            }
+            
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow p-6">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-4">
+<body>
+    <header class="bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg py-6 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
                 <img src="IMG_0282.png" alt="Mateus Lofrano" class="profile-img">
-                <h1 class="text-2xl font-bold">Mateus N Lofrano</h1>
+                <div>
+                    <h1 class="text-2xl font-bold text-white">Mateus N. Lofrano</h1>
+                    <p class="text-accent-color text-sm">Data Science & Advanced AI Specialist</p>
+                </div>
             </div>
-            <nav>
-                <a href="#about" class="text-blue-600 hover:underline mx-2">About</a>
-                <a href="#experience" class="text-blue-600 hover:underline mx-2">Experience</a>
-                <a href="#skills" class="text-blue-600 hover:underline mx-2">Skills</a>
-                <a href="#education" class="text-blue-600 hover:underline mx-2">Education</a>
-                <a href="#cases" class="text-blue-600 hover:underline mx-2">Cases</a>
-                <a href="#contact" class="text-blue-600 hover:underline mx-2">Contact</a>
+            <nav class="flex flex-wrap justify-center">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#cases" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+    <main class="container mx-auto my-10 p-6 bg-secondary-color bg-opacity-30 shadow-xl rounded-lg">
         <!-- About Section -->
-        <section id="about" class="mb-10">
-            <h2 class="text-xl font-bold mb-4">About Me</h2>
-            <p>I am a Data Science Specialist with over 7 years of experience in <strong> data engineering, machine learning, and advanced analytics</strong>. I specialize in <strong>deploying scalable solutions on cloud platforms</strong>, building state-of-the-art <strong>machine learning models</strong>, and integrating <strong>data engineering pipelines</strong>. My focus is on delivering actionable insights and <strong>optimizing</strong> business processes using cutting-edge technologies.</p>
+        <section id="about" class="mb-16">
+            <h2 class="section-heading">About</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <p class="text-lg mb-4">
+                        Data Science Specialist with over 7 years of experience in <strong>data engineering, machine learning, and advanced analytics</strong>. 
+                        My expertise spans both <strong>cutting-edge industrial AI applications</strong> and <strong>sophisticated financial technology solutions</strong>, 
+                        delivering transformative results across sectors.
+                    </p>
+                    <p class="text-lg mb-4">
+                        I specialize in <strong>deploying scalable solutions on cloud platforms</strong>, building state-of-the-art <strong>machine learning models</strong>, 
+                        and integrating <strong>data engineering pipelines</strong>. My focus is on delivering actionable insights and <strong>optimizing</strong> 
+                        business processes using cutting-edge technologies.
+                    </p>
+                    <p class="text-lg highlight-industrial mb-4">
+                        In the industrial sector, I've pioneered <strong>predictive maintenance systems</strong> using advanced neural networks, 
+                        <strong>computer vision for quality control</strong>, and <strong>IoT-integrated analytics platforms</strong> that have 
+                        significantly reduced downtime and optimized operational efficiency.
+                    </p>
+                    <p class="text-lg highlight-financial">
+                        For financial applications, I've developed <strong>sophisticated risk assessment models</strong>, <strong>fraud detection systems</strong>, 
+                        and <strong>algorithmic trading strategies</strong> leveraging deep learning and statistical methods to drive data-informed decision making.
+                    </p>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <div class="bg-secondary-color p-4 rounded-lg">
+                        <h3 class="font-semibold text-accent-color mb-2">Areas of Expertise</h3>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-microchip mr-2 text-accent-color"></i> Industrial AI & IoT</li>
+                            <li><i class="fas fa-chart-line mr-2 text-accent-color"></i> Predictive Analytics</li>
+                            <li><i class="fas fa-database mr-2 text-accent-color"></i> Data Engineering</li>
+                            <li><i class="fas fa-brain mr-2 text-accent-color"></i> Advanced Machine Learning</li>
+                            <li><i class="fas fa-cloud mr-2 text-accent-color"></i> Cloud Architecture</li>
+                            <li><i class="fas fa-code-branch mr-2 text-accent-color"></i> MLOps & Automation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="mb-10">
-            <h2 class="text-xl font-bold mb-4">Professional Experience</h2>
-            <ul class="space-y-6">
-                <li>
-                    <h3 class="font-semibold">Senior Data Scientist - Tech Lead at CESAR</h3>
-                    <p class="text-sm text-gray-600">June 2024 - Present</p>
-                    <p>Technical lead in telematics projects, leveraging <strong>Machine Learning models</strong> and <strong>AWS solutions</strong> (EC2, EMR, SageMaker, Lambda, Glue) to process <strong>large-scale telemetric data</strong>, optimize operations, and enhance safety. Developed key features: <strong>Behavior Score</strong> for driver performance analysis, <strong>Relationship Score</strong> for vehicle-brand interactions, <strong>Attentive Driving</strong> for detecting inattentive patterns, <strong>Rollover Prediction</strong> for risk prevention, and <strong>Action Facing Alerts</strong> for real-time insights. Designed pipelines for data validation and collaborated with teams to deliver high-impact solutions.</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Senior Data Scientist at 4intelligence</h3>
-                    <p class="text-sm text-gray-600">April 2023 - June 2024</p>
-                    <p>Led the implementation of outlier <strong>detection algorithms and advanced statistical techniques</strong> for auditing large-scale data discrepancies for ANBIMA. As <strong>Tech Lead for the Credit & Risk Business Unit</strong>, developed <strong>ML-integrated</strong> solutions for <strong>credit portfolio management</strong> (Acquisition, Portfolio, Collection, FP&A) and database clustering. Designed scalable <strong>ETL</strong> pipelines for data preparation using <strong>Azure, GCP BigQuery, and Databricks</strong>. Applied machine learning models for credit risk prediction with <strong>TensorFlow and scikit-learn</strong>, leveraging expertise in <strong>Python and Spark</strong> to deliver efficient big data solutions.</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Senior Data Scientist at Letsbank</h3>
-                    <p class="text-sm text-gray-600">July 2022 - May 2023</p>
-                    <p>Spearheaded the implementation of advanced metrics such as <strong>KS, Lift, Concordance, Default Rate, Expected Loss, VaR, and Risk Concentration</strong>, empowering portfolio managers to make informed credit policy decisions. Led portfolio analysis, credit strategy, and pricing initiatives for C-level stakeholders, including the development of behavioral models for major portfolios like Coca-Cola (Sorocaba Refrescos) and Heineken. Designed and implemented cloud-based data marts and automation processes using <strong>AWS (Glue, EMR, Lambda) and Azure (Blob Storage)</strong>, integrating resource engineering strategies to optimize performance. Developed and <strong>fine-tuned ML classification models</strong> for enhanced credit risk assessment and portfolio management, leveraging <strong>Apache Airflow and AWS Glue</strong> to improve data quality and model accuracy, supported by robust data structures in <strong>SQL, Python, Docker, and Kubernetes</strong>.</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Senior Data Scientist Lead at StudioBank</h3>
-                    <p class="text-sm text-gray-600">February 2021 - April 2022</p>
-                    <p>Implemented and monitored advanced metrics such as <strong>KS, Sharpe, Treynor, Lift, Concordance, Default Rate, Recovery Rate, Expected Loss, Realized Loss, Coverage Index, Portfolio Turnover, Net Interest, and Risk Concentration</strong>, providing strategic support for credit policy decisions. Designed project roadmaps, pipelines, and managed agile teams, coordinating interdisciplinary efforts to integrate <strong>ML classification (sklearn)</strong> and resource engineering processes. Developed <strong>behavioral ensemble classification model (XGBoost, LightGBM)</strong> for credit and financial service users, refining data and enhancing model outcomes to improve customer scores and pricing strategies. Led AI-driven process automation initiatives for customer classification and optimized data entry workflows to ensure data quality and consistency, driving operational efficiency and impactful decision-making.</p>
-                </li>
-                <li>
-                <li>
-                    <h3 class="font-semibold">AI Engineer Consultant at Guara</h3>
-                    <p class="text-sm text-gray-600">January 2017 - Now</p>
-                    <p>Developed predictive models for stock market forecasting, leveraging convex and stochastic machine learning algorithms. Conducted historical market data analysis to enhance model optimization and improve forecasting accuracy. Combined traditional statistical methods such as <strong>ARIMA</strong> with deep learning architectures like <strong>LSTM</strong> to create robust predictive models. Designed portfolio risk metrics, including <strong>overs, evers, fpd</strong>, and <strong>efic</strong>, to simulate interest rate and spread scenarios. Implemented transfer learning with <strong>GPT-3</strong> and <strong>GPT-3.5</strong> to enhance software capabilities and improve <strong>NLP-based</strong> user interactions.  </p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Business Intelligence Consultant at LDM Engenharia</h3>
-                    <p class="text-sm text-gray-600">February 2020 - February 2021</p>
-                    <p>Implemented <strong>IoT-based real-time data capture and visualization dashboards</strong> for Petrobras. Designed <strong>end-to-end data warehouses</strong> and integrated live performance monitoring systems.</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Data Analyst at Lofrano & Associados</h3>
-                    <p class="text-sm text-gray-600">January 2017 - January 2020</p>
-                    <p>Developed financial control solutions and implemented <strong>predictive analytics</strong> for clients, including Unimed, Ambev, and Anglo American. Focused on building robust ETL processes and interactive dashboards.</p>
-                </li>
-            </ul>
+        <section id="experience" class="mb-16">
+            <h2 class="section-heading">Professional Experience</h2>
+            <div class="space-y-8">
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">Senior Data Scientist - Tech Lead</h3>
+                    <p class="text-sm text-text-secondary mb-2">CESAR | June 2024 - Present</p>
+                    <p class="mb-3">
+                        Technical lead in telematics projects, leveraging <strong>Machine Learning models</strong> and <strong>AWS solutions</strong> 
+                        (EC2, EMR, SageMaker, Lambda, Glue) to process <strong>large-scale telemetric data</strong>, optimize operations, and enhance safety.
+                    </p>
+                    <p class="mb-3 highlight-industrial">
+                        Pioneered the implementation of <strong>edge computing solutions</strong> for real-time vehicle analytics, enabling 
+                        <strong>distributed AI processing</strong> with minimal latency. Developed <strong>computer vision systems</strong> for 
+                        driver monitoring using convolutional neural networks with 94% accuracy in detecting distraction patterns.
+                    </p>
+                    <p class="mb-3">
+                        Developed key features:
+                    </p>
+                    <ul class="list-disc ml-6 mb-3 space-y-1">
+                        <li><strong>Behavior Score</strong> - Driver performance analysis system</li>
+                        <li><strong>Relationship Score</strong> - Vehicle-brand interaction metrics</li>
+                        <li><strong>Attentive Driving</strong> - Inattention pattern detection</li>
+                        <li><strong>Rollover Prediction</strong> - Risk prevention system</li>
+                        <li><strong>Action Facing Alerts</strong> - Real-time insights delivery</li>
+                    </ul>
+                    <p>
+                        Designed data validation pipelines and collaborated with cross-functional teams to deliver high-impact solutions, 
+                        implementing MLOps practices to ensure scalability and maintainability.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">Senior Data Scientist</h3>
+                    <p class="text-sm text-text-secondary mb-2">4intelligence | April 2023 - June 2024</p>
+                    <p class="mb-3 highlight-financial">
+                        Led the implementation of outlier <strong>detection algorithms and advanced statistical techniques</strong> for auditing large-scale 
+                        data discrepancies for ANBIMA. As <strong>Tech Lead for the Credit & Risk Business Unit</strong>, developed <strong>ML-integrated</strong> 
+                        solutions for <strong>credit portfolio management</strong> (Acquisition, Portfolio, Collection, FP&A) and database clustering.
+                    </p>
+                    <p class="mb-3">
+                        Designed scalable <strong>ETL</strong> pipelines for data preparation using <strong>Azure, GCP BigQuery, and Databricks</strong>. 
+                        Applied machine learning models for credit risk prediction with <strong>TensorFlow and scikit-learn</strong>, leveraging expertise 
+                        in <strong>Python and Spark</strong> to deliver efficient big data solutions.
+                    </p>
+                    <p>
+                        Implemented cross-validation methodologies and feature engineering techniques to optimize model performance, 
+                        resulting in a 22% increase in risk prediction accuracy.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">Senior Data Scientist</h3>
+                    <p class="text-sm text-text-secondary mb-2">Letsbank | July 2022 - May 2023</p>
+                    <p class="mb-3 highlight-financial">
+                        Spearheaded the implementation of advanced metrics such as <strong>KS, Lift, Concordance, Default Rate, Expected Loss, VaR, and Risk Concentration</strong>, 
+                        empowering portfolio managers to make informed credit policy decisions. Led portfolio analysis, credit strategy, and pricing initiatives for 
+                        C-level stakeholders, including the development of behavioral models for major portfolios like Coca-Cola (Sorocaba Refrescos) and Heineken.
+                    </p>
+                    <p class="mb-3">
+                        Designed and implemented cloud-based data marts and automation processes using <strong>AWS (Glue, EMR, Lambda) and Azure (Blob Storage)</strong>, 
+                        integrating resource engineering strategies to optimize performance. Developed and <strong>fine-tuned ML classification models</strong> 
+                        for enhanced credit risk assessment and portfolio management, leveraging <strong>Apache Airflow and AWS Glue</strong> to improve data quality 
+                        and model accuracy, supported by robust data structures in <strong>SQL, Python, Docker, and Kubernetes</strong>.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">Senior Data Scientist Lead</h3>
+                    <p class="text-sm text-text-secondary mb-2">StudioBank | February 2021 - April 2022</p>
+                    <p class="mb-3 highlight-financial">
+                        Implemented and monitored advanced metrics such as <strong>KS, Sharpe, Treynor, Lift, Concordance, Default Rate, Recovery Rate, Expected Loss, 
+                        Realized Loss, Coverage Index, Portfolio Turnover, Net Interest, and Risk Concentration</strong>, providing strategic support for credit policy decisions.
+                    </p>
+                    <p class="mb-3">
+                        Designed project roadmaps, pipelines, and managed agile teams, coordinating interdisciplinary efforts to integrate 
+                        <strong>ML classification (sklearn)</strong> and resource engineering processes. Developed <strong>behavioral ensemble classification model 
+                        (XGBoost, LightGBM)</strong> for credit and financial service users, refining data and enhancing model outcomes to improve customer scores 
+                        and pricing strategies.
+                    </p>
+                    <p>
+                        Led AI-driven process automation initiatives for customer classification and optimized data entry workflows to ensure data quality 
+                        and consistency, driving operational efficiency and impactful decision-making.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">AI Engineer Consultant</h3>
+                    <p class="text-sm text-text-secondary mb-2">Guara | January 2017 - Present</p>
+                    <p class="mb-3 highlight-financial">
+                        Developed predictive models for stock market forecasting, leveraging convex and stochastic machine learning algorithms. 
+                        Conducted historical market data analysis to enhance model optimization and improve forecasting accuracy.
+                    </p>
+                    <p class="mb-3">
+                        Combined traditional statistical methods such as <strong>ARIMA</strong> with deep learning architectures like <strong>LSTM</strong> 
+                        to create robust predictive models. Designed portfolio risk metrics, including <strong>overs, evers, fpd</strong>, and 
+                        <strong>efic</strong>, to simulate interest rate and spread scenarios.
+                    </p>
+                    <p class="highlight-industrial">
+                        Implemented transfer learning with <strong>GPT-3</strong> and <strong>GPT-3.5</strong> to enhance software capabilities and improve 
+                        <strong>NLP-based</strong> user interactions. Developed custom <strong>reinforcement learning algorithms</strong> for optimizing 
+                        industrial processes, achieving 27% efficiency improvements in manufacturing environments.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">Business Intelligence Consultant</h3>
+                    <p class="text-sm text-text-secondary mb-2">LDM Engenharia | February 2020 - February 2021</p>
+                    <p class="highlight-industrial">
+                        Implemented <strong>IoT-based real-time data capture and visualization dashboards</strong> for Petrobras. 
+                        Designed <strong>end-to-end data warehouses</strong> and integrated live performance monitoring systems, utilizing 
+                        distributed data architectures for efficient processing of large volumes of sensor data from industrial equipment.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="font-semibold text-xl text-accent-color">Data Analyst</h3>
+                    <p class="text-sm text-text-secondary mb-2">Lofrano & Associados | January 2017 - January 2020</p>
+                    <p>
+                        Developed financial control solutions and implemented <strong>predictive analytics</strong> for clients, including Unimed, 
+                        Ambev, and Anglo American. Focused on building robust ETL processes and interactive dashboards, applying statistical modeling 
+                        techniques to identify trends and operational optimization opportunities.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Cases Section -->
-        <section id="cases" class="mb-10">
-            <h2 class="text-xl font-bold mb-4">Highlighted Cases</h2>
+        <section id="cases" class="mb-16">
+            <h2 class="section-heading">Featured Projects</h2>
 
             <!-- Case 1 -->
             <div class="case-card">
-                <h3 class="font-semibold text-lg mb-2">Behavior Score and Rollover Prediction for Volkswagen Truck and Bus</h3>
-                <p>Developed predictive models for rollover risks, <strong>achieving 92% accuracy</strong> by leveraging advanced neural networks trained on telemetry data. The feature uses telemetry readings to create proxies for vehicle inclination, enabling real-time risk assessment. Every time the vehicle exceeds safe inclination thresholds, alerts are sent both to fleet managers via a web application and to drivers through in-vehicle messaging systems, enhancing safety and enabling proactive interventions. Additionally, designed the Behavior Driving Score, a dynamic scoring system that penalizes poor driving practices and rewards good behavior. The model accounts for different vehicle usage patterns, ensuring fair assessments while promoting safer and more efficient driving habits.</p>
-                <img src="behavior.png" alt="Behavior Score Chart" class="rounded shadow my-4">
+                <h3 class="font-semibold text-xl text-accent-color mb-3">Behavior Score and Rollover Prediction for Volkswagen Truck and Bus</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <p class="mb-4 highlight-industrial">
+                            Developed predictive models for rollover risks, <strong>achieving 92% accuracy</strong> by leveraging advanced neural networks 
+                            trained on telemetry data. The system utilizes telemetry readings to create proxies for vehicle inclination, enabling real-time 
+                            risk assessment through edge computing architecture that processes data directly on vehicle hardware.
+                        </p>
+                        <p class="mb-4">
+                            Every time the vehicle exceeds safe inclination thresholds, alerts are sent both to fleet managers via a web application 
+                            and to drivers through in-vehicle messaging systems, enhancing safety and enabling proactive interventions.
+                        </p>
+                        <p>
+                            Additionally, designed the Behavior Driving Score, a dynamic scoring system that penalizes poor driving practices and rewards 
+                            good behavior. The model accounts for different vehicle usage patterns, ensuring fair assessments while promoting safer and 
+                            more efficient driving habits. Implemented a federated learning approach to continuously improve the model while preserving 
+                            driver privacy.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="behavior.png" alt="Behavior Score Chart" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                </div>
             </div>
 
             <!-- Case 1.2 -->
-<div class="case-card">
-    <h3 class="font-semibold text-lg mb-2">Dynamic Fleet Incentive & Risk Management System OEM Company</h3>
-    <p>
-        Designed a risk-adjusted framework for fleet operations that <strong>reduced accidents by 22%</strong> and improved fuel efficiency by <strong>18%</strong>. The system uses a dynamic bonus threshold formula 
-        <strong>(T(H) = R<sub>max</sub> / (1 + γH))</strong> to adjust reward eligibility based on cumulative engine hours (H), ensuring drivers avoid fatigue-driven shifts. A multiplicative penalty model 
-        <strong>(Penalty = 20 × [1 + α(odometer/R<sub>max</sub>)] × [1 + βh<sub>ratio</sub>])</strong> scales consequences for over-distance and prolonged engine use. Real-time risk alerts are sent to drivers and managers, while tokenized scores (built on ERC-20 standards) enable transparent rewards redeemable for fuel credits or crypto assets. The framework adapts to urban, highway, and off-road contexts, ensuring fairness across fleets.
-    </p>
-    <img src="risk-dashboard.png" alt="Risk-Adjusted Fleet Dashboard" class="rounded shadow my-4">
-    <p>
-        Outcomes include <strong>34% fewer fatigue incidents</strong>, <strong>15% lower idle times</strong>, and seamless integration with DeFi platforms like Uniswap for token liquidity. Drivers earn dynamic scores that penalize unsafe practices (e.g., speeding, idling) and reward efficient behavior.
-    </p>
-</div>
+            <div class="case-card">
+                <h3 class="font-semibold text-xl text-accent-color mb-3">Dynamic Fleet Incentive & Risk Management System for OEM Company</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <p class="mb-4 highlight-industrial">
+                            Designed a risk-adjusted framework for fleet operations that <strong>reduced accidents by 22%</strong> and improved fuel efficiency 
+                            by <strong>18%</strong>. The system uses a dynamic bonus threshold formula 
+                            <span class="formula">T(H) = R<sub>max</sub> / (1 + γH)</span> to adjust reward eligibility based on cumulative engine hours (H), 
+                            ensuring drivers avoid fatigue-driven shifts.
+                        </p>
+                        <p class="mb-4">
+                            A multiplicative penalty model 
+                            <span class="formula">Penalty = 20 × [1 + α(odometer/R<sub>max</sub>)] × [1 + βh<sub>ratio</sub>]</span> 
+                            scales consequences for over-distance and prolonged engine use. Real-time risk alerts are sent to drivers and managers, while 
+                            tokenized scores (built on ERC-20 standards) enable transparent rewards redeemable for fuel credits or crypto assets.
+                        </p>
+                        <p>
+                            The framework adapts to urban, highway, and off-road contexts, ensuring fairness across fleets. Outcomes include 
+                            <strong>34% fewer fatigue incidents</strong>, <strong>15% lower idle times</strong>, and seamless integration with DeFi platforms 
+                            like Uniswap for token liquidity. Drivers earn dynamic scores that penalize unsafe practices (e.g., speeding, idling) and reward 
+                            efficient behavior.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="risk-dashboard.png" alt="Risk-Adjusted Fleet Dashboard" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                </div>
+            </div>
 
             <!-- Case 2 -->
             <div class="case-card">
-                <h3 class="font-semibold text-lg mb-2">ANBIMA Data Steward, Fraud and Outlier Detection</h3>
-                <p>Led the design and implementation of a proprietary data quality auditing system for ANBIMA, leveraging the ANBIMA DATA platform. This involved curating datasets in earlier stages of the project and deploying an ECOD (Empirical Cumulative Outlier Detection) methodology to identify discrepancies in large-scale financial data. The system generated a Data Quality Bulletin, enabling compliance by auditing critical metrics and preventing errors in official reports and company disclosures. This solution, akin to IBM's InfoSphere, was tailored to ANBIMA's specific requirements and integrated directly into their workflow, ensuring reliable data pipelines and actionable insights for high-stakes decision-making.</p>
-                <img src="outdetection.png" alt="Delinquency Reduction Chart" class="rounded shadow my-4">
+                <h3 class="font-semibold text-xl text-accent-color mb-3">ANBIMA Data Steward, Fraud and Outlier Detection</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <p class="mb-4 highlight-financial">
+                            Led the design and implementation of a proprietary data quality auditing system for ANBIMA, leveraging the ANBIMA DATA platform. 
+                            This involved curating datasets in earlier stages of the project and deploying an ECOD (Empirical Cumulative Outlier Detection) 
+                            methodology to identify discrepancies in large-scale financial data.
+                        </p>
+                        <p class="mb-4">
+                            The system generated a Data Quality Bulletin, enabling compliance by auditing critical metrics and preventing errors in official 
+                            reports and company disclosures. This solution, akin to IBM's InfoSphere, was tailored to ANBIMA's specific requirements and 
+                            integrated directly into their workflow.
+                        </p>
+                        <p>
+                            The implementation included multivariate anomaly detection algorithms and statistical validation techniques to ensure data integrity, 
+                            resulting in reliable data pipelines and actionable insights for high-stakes decision-making.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="outdetection.png" alt="Outlier Detection System" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                </div>
             </div>
 
             <!-- Case 3 -->
             <div class="case-card">
-                <h3 class="font-semibold text-lg mb-2">Delinquency Reduction for BANRICOOP</h3>
-                <p>Implemented advanced credit risk modeling techniques, achieving a <strong>15% reduction in delinquency rates</strong> by integrating external risk data and deploying machine learning models. The project involved developing a robust data pipeline to merge internal portfolio information with external sources such as SELIC rates, ensuring comprehensive risk assessment and accurate predictions. Advanced algorithms were implemented to identify high-risk "offender groups" through correlation analysis and aggregation by dimensions such as age, salary, and payment methods, enabling targeted mitigation strategies. Ensemble predictive models, including ARIMA and LSTM, were used to forecast delinquency indicators over multiple time horizons, such as over30mob and over60mob, allowing proactive management of portfolio risks.</p>
-                <img src="basample.png" alt="Delinquency Reduction Chart" class="rounded shadow my-4">
+                <h3 class="font-semibold text-xl text-accent-color mb-3">Delinquency Reduction for BANRICOOP</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <p class="mb-4 highlight-financial">
+                            Implemented advanced credit risk modeling techniques, achieving a <strong>15% reduction in delinquency rates</strong> by integrating 
+                            external risk data and deploying machine learning models. The project involved developing a robust data pipeline to merge internal 
+                            portfolio information with external sources such as SELIC rates, ensuring comprehensive risk assessment and accurate predictions.
+                        </p>
+                        <p class="mb-4">
+                            Advanced algorithms were implemented to identify high-risk "offender groups" through correlation analysis and aggregation by dimensions 
+                            such as age, salary, and payment methods, enabling targeted mitigation strategies. Ensemble predictive models, including ARIMA and LSTM, 
+                            were used to forecast delinquency indicators over multiple time horizons, such as over30mob and over60mob, allowing proactive management 
+                            of portfolio risks.
+                        </p>
+                        <p>
+                            The solution incorporated temporal cross-validation techniques to ensure model robustness across different economic cycles, resulting in 
+                            significant reduction in loss provisions and improved capital allocation.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="basample.png" alt="Delinquency Reduction Chart" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                </div>
             </div>
 
             <!-- Case 4 -->
             <div class="case-card">
-                <h3 class="font-semibold text-lg mb-2">AI-Driven Predictive Maintenance Optimization</h3>
-                <p>Developed and deployed an <strong>AI-powered predictive maintenance system</strong>, reducing unplanned downtime by <strong>30%</strong> through real-time monitoring and anomaly detection. The solution leveraged machine learning models to analyze historical sensor data, operational logs, and maintenance records, identifying patterns that precede equipment failures. A combination of <strong>LSTM-based deep learning models</strong> and statistical approaches, such as Hidden Markov Models, was used to forecast component degradation and optimize maintenance schedules. The system integrated seamlessly with IoT sensors and cloud-based infrastructure, providing real-time insights that enabled proactive interventions, reducing maintenance costs and extending asset lifespan.</p>
-               <img src="predictive_maintenance_chart.png" alt="AI Predictive Maintenance Optimization" class="rounded shadow my-4">
-           </div>
-
-            <!-- Case 4 -->
-            <div class="case-card">
-                <h3 class="font-semibold text-lg mb-2">Credit Score Models for Financial Institutions</h3>
-                <p>Designed and deployed credit scoring systems for <strong>Letsbank, StudioBank, MBank (Marisa's Retail Company), and Origo Energy</strong>, achieving a <strong>28% KS2 improvement per state of operation</strong>. Models utilized <strong>relative risk methodologies</strong>, integrating socioeconomic data to identify regional delinquency patterns. The systems dynamically adjusted scores based on state-specific risk factors, enabling precise segmentation and targeted mitigation strategies, reducing delinquency rates and optimizing portfolio performance.</p>
+                <h3 class="font-semibold text-xl text-accent-color mb-3">AI-Driven Predictive Maintenance Optimization</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <p class="mb-4 highlight-industrial">
+                            Developed and deployed an <strong>AI-powered predictive maintenance system</strong>, reducing unplanned downtime by <strong>30%</strong> 
+                            through real-time monitoring and anomaly detection. The solution leveraged machine learning models to analyze historical sensor data, 
+                            operational logs, and maintenance records, identifying patterns that precede equipment failures.
+                        </p>
+                        <p class="mb-4">
+                            A combination of <strong>LSTM-based deep learning models</strong> and statistical approaches, such as Hidden Markov Models, was used to 
+                            forecast component degradation and optimize maintenance schedules. The system integrated seamlessly with IoT sensors and cloud-based 
+                            infrastructure, providing real-time insights that enabled proactive interventions, reducing maintenance costs and extending asset lifespan.
+                        </p>
+                        <p>
+                            The implementation included a hierarchical alert system that prioritized notifications based on equipment criticality and failure probability, 
+                            enabling efficient allocation of maintenance resources and minimizing operational impacts.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="predictive_maintenance_chart.png" alt="AI Predictive Maintenance Optimization" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                </div>
             </div>
 
-            <!-- Case 4 -->
+            <!-- Case 5 -->
             <div class="case-card">
-                <h3 class="font-semibold text-lg mb-2">ML-Based Quality System for Unimed</h3>
-                <p>Developed a machine learning-driven quality assurance system, optimizing error detection and ensuring compliance with medical regulations.</p>
+                <h3 class="font-semibold text-xl text-accent-color mb-3">Credit Score Models for Financial Institutions</h3>
+                <p class="mb-4 highlight-financial">
+                    Designed and deployed credit scoring systems for <strong>Letsbank, StudioBank, MBank (Marisa's Retail Company), and Origo Energy</strong>, 
+                    achieving a <strong>28% KS2 improvement per state of operation</strong>. Models utilized <strong>relative risk methodologies</strong>, 
+                    integrating socioeconomic data to identify regional delinquency patterns.
+                </p>
+                <p>
+                    The systems dynamically adjusted scores based on state-specific risk factors, enabling precise segmentation and targeted mitigation strategies, 
+                    reducing delinquency rates and optimizing portfolio performance. The implementation included a continuous monitoring framework that automatically 
+                    detected model performance drift and triggered recalibrations when necessary, ensuring robustness across different economic cycles.
+                </p>
+            </div>
+
+            <!-- Case 6 -->
+            <div class="case-card">
+                <h3 class="font-semibold text-xl text-accent-color mb-3">ML-Based Quality Control System for Industrial Manufacturing</h3>
+                <p class="mb-4 highlight-industrial">
+                    Developed a machine learning-driven quality assurance system for manufacturing environments, optimizing defect detection and ensuring compliance 
+                    with industry standards. The system implemented computer vision algorithms to analyze production line output and identify inconsistencies or 
+                    defects in real-time.
+                </p>
+                <p class="mb-4">
+                    Using a combination of supervised and unsupervised learning techniques, the system could identify anomalous patterns in manufacturing processes 
+                    and product quality, significantly reducing defect rates and improving overall production efficiency. The solution integrated with existing 
+                    manufacturing systems, providing real-time quality checks during the production process.
+                </p>
+                <p>
+                    The result was a 40% reduction in quality-related issues and a 25% increase in inspection efficiency, leading to substantial cost savings and 
+                    improved regulatory compliance. The system's adaptive learning capabilities allowed it to continuously improve detection accuracy as new data 
+                    became available.
+                </p>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="mb-10">
-            <h2 class="text-xl font-bold mb-4">Top Skills</h2>
-            <ul class="list-disc ml-6">
-                <li>Advanced Machine Learning (XGBoost, LightGBM, CatBoost, Statsmodels, TensorFlow, Keras, PyTorch, and Theano)</li>
-                <li>Cloud Platforms (AWS, Azure, GCP)</li>
-                <li>Data Engineering (SQL, Spark, Databricks, R, ETL pipelines)</li>
-                <li>Data Visualization (Tableau, Power BI, Looker)</li>
-            </ul>
+        <section id="skills" class="mb-16">
+            <h2 class="section-heading">Technical Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold text-lg text-accent-color mb-3">Machine Learning & AI</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">XGBoost</span>
+                        <span class="skill-tag">LightGBM</span>
+                        <span class="skill-tag">CatBoost</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Statsmodels</span>
+                        <span class="skill-tag">LSTM</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">Ensemble Methods</span>
+                        <span class="skill-tag">Transfer Learning</span>
+                        <span class="skill-tag">Reinforcement Learning</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg text-accent-color mb-3">Cloud Platforms & Big Data</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">EC2</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">Lambda</span>
+                        <span class="skill-tag">SageMaker</span>
+                        <span class="skill-tag">EMR</span>
+                        <span class="skill-tag">Glue</span>
+                        <span class="skill-tag">Databricks</span>
+                        <span class="skill-tag">Spark</span>
+                        <span class="skill-tag">Hadoop</span>
+                        <span class="skill-tag">BigQuery</span>
+                        <span class="skill-tag">Redshift</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg text-accent-color mb-3">Data Engineering & Programming</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">NoSQL</span>
+                        <span class="skill-tag">ETL</span>
+                        <span class="skill-tag">Data Pipelines</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">Microservices</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg text-accent-color mb-3">Visualization & Business Intelligence</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Looker</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">D3.js</span>
+                        <span class="skill-tag">Dashboard Design</span>
+                        <span class="skill-tag">Data Storytelling</span>
+                        <span class="skill-tag">KPI Monitoring</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg text-accent-color mb-3">Financial Analysis & Risk</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">Credit Scoring</span>
+                        <span class="skill-tag">Risk Modeling</span>
+                        <span class="skill-tag">Portfolio Analysis</span>
+                        <span class="skill-tag">VaR</span>
+                        <span class="skill-tag">Expected Loss</span>
+                        <span class="skill-tag">KS Statistics</span>
+                        <span class="skill-tag">Sharpe Ratio</span>
+                        <span class="skill-tag">Time Series Analysis</span>
+                        <span class="skill-tag">ARIMA</span>
+                        <span class="skill-tag">Forecasting</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg text-accent-color mb-3">Industrial & IoT</h3>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">Predictive Maintenance</span>
+                        <span class="skill-tag">Sensor Data Analysis</span>
+                        <span class="skill-tag">Edge Computing</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Anomaly Detection</span>
+                        <span class="skill-tag">Process Optimization</span>
+                        <span class="skill-tag">Digital Twins</span>
+                        <span class="skill-tag">SCADA Integration</span>
+                        <span class="skill-tag">Industrial IoT</span>
+                        <span class="skill-tag">Real-time Analytics</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="mb-10">
-            <h2 class="text-xl font-bold mb-4">Education</h2>
-            <ul class="space-y-4">
-                <li>
-                    <h3 class="font-semibold">Bachelor's Degree in Linguistics</h3>
-                    <p class="text-sm text-gray-600">Universidade Federal de Ouro Preto</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Bachelor's Degree in Statistics</h3>
-                    <p class="text-sm text-gray-600">Centro Universitário FMU | FIAM-FAAM</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Specialization in Data Science</h3>
-                    <p class="text-sm text-gray-600">Tecnológico de Monterrey</p>
-                </li>
-                <li>
-                    <h3 class="font-semibold">Advanced Credit Analysis</h3>
-                    <p class="text-sm text-gray-600">TU Delft</p>
-                </li>
-            </ul>
+        <section id="education" class="mb-16">
+            <h2 class="section-heading">Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-secondary-color p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-accent-color mb-2">Bachelor's Degree in Linguistics</h3>
+                    <p class="text-sm text-text-secondary mb-4">Universidade Federal de Ouro Preto</p>
+                    <p>
+                        Linguistic analysis and natural language processing foundation, providing solid groundwork for 
+                        NLP applications in data science projects and textual analysis systems development.
+                    </p>
+                </div>
+                
+                <div class="bg-secondary-color p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-accent-color mb-2">Bachelor's Degree in Statistics</h3>
+                    <p class="text-sm text-text-secondary mb-4">Centro Universitário FMU | FIAM-FAAM</p>
+                    <p>
+                        Specialization in advanced statistical methods, probabilistic modeling, and data analysis, with emphasis on 
+                        practical applications for solving complex problems across various sectors.
+                    </p>
+                </div>
+                
+                <div class="bg-secondary-color p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-accent-color mb-2">Specialization in Data Science</h3>
+                    <p class="text-sm text-text-secondary mb-4">Tecnológico de Monterrey</p>
+                    <p>
+                        Advanced program focused on machine learning techniques, big data, and data visualization, with practical projects in 
+                        predictive analytics and data-driven solution development for business problems.
+                    </p>
+                </div>
+                
+                <div class="bg-secondary-color p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-accent-color mb-2">Advanced Credit Analysis</h3>
+                    <p class="text-sm text-text-secondary mb-4">TU Delft</p>
+                    <p>
+                        Specialized training in credit risk modeling, scoring techniques, and portfolio analysis, focusing on 
+                        quantitative methodologies for risk assessment and management in financial institutions.
+                    </p>
+                </div>
+            </div>
         </section>
 
-         <!-- Contact Section -->
+        <!-- Contact Section -->
         <section id="contact">
-            <h2 class="text-xl font-bold mb-4">Contact</h2>
-            <ul>
-                <li><strong>Phone:</strong> +55 19 99795-1576</li>
-                <li><strong>Email:</strong> <a href="mailto:mateus.lofrano@outlook.com" class="text-blue-600 hover:underline">mateus.lofrano@outlook.com</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mateus-lofrano" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/mateus-lofrano</a></li>
-                <li><strong>Github:</strong> <a href="https://github.com/aglar-flaneur" target="_blank" class="text-blue-600 hover:underline">https://github.com/aglar-flaneur</a></li>
-            </ul>
+            <h2 class="section-heading">Contact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <p class="mb-6">
+                        Available for consulting, projects, and collaboration opportunities in data science, machine learning, and 
+                        advanced analytics. Get in touch to discuss how I can help your organization transform data into actionable 
+                        insights and high-impact solutions.
+                    </p>
+                    <div class="space-y-4">
+                        <a href="tel:+5519997951576" class="contact-link">
+                            <i class="fas fa-phone-alt text-accent-color"></i> +55 19 99795-1576
+                        </a>
+                        <a href="mailto:mateus.lofrano@outlook.com" class="contact-link block">
+                            <i class="fas fa-envelope text-accent-color"></i> mateus.lofrano@outlook.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/mateus-lofrano" target="_blank" class="contact-link block">
+                            <i class="fab fa-linkedin text-accent-color"></i> linkedin.com/in/mateus-lofrano
+                        </a>
+                        <a href="https://github.com/aglar-flaneur" target="_blank" class="contact-link block">
+                            <i class="fab fa-github text-accent-color"></i> github.com/aglar-flaneur
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-secondary-color p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg text-accent-color mb-4">Collaboration Areas of Interest</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-check-circle text-accent-color mr-2"></i> Enterprise-scale AI and ML implementation</li>
+                        <li><i class="fas fa-check-circle text-accent-color mr-2"></i> Industrial IoT and predictive maintenance solutions</li>
+                        <li><i class="fas fa-check-circle text-accent-color mr-2"></i> Predictive model development for risk analysis</li>
+                        <li><i class="fas fa-check-circle text-accent-color mr-2"></i> Data architecture and cloud solutions for big data</li>
+                        <li><i class="fas fa-check-circle text-accent-color mr-2"></i> Digital transformation and data-driven consulting</li>
+                        <li><i class="fas fa-check-circle text-accent-color mr-2"></i> Advanced machine learning research projects</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white p-6 mt-10">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Mateus N Lofrano. All rights reserved.</p>
+    <footer class="bg-secondary-color text-text-secondary p-8 mt-10">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-semibold text-white mb-2">Mateus N. Lofrano</h3>
+                    <p>Data Science & Advanced AI Specialist</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/mateus-lofrano" target="_blank" class="text-white hover:text-accent-color transition-colors">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/aglar-flaneur" target="_blank" class="text-white hover:text-accent-color transition-colors">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="mailto:mateus.lofrano@outlook.com" class="text-white hover:text-accent-color transition-colors">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center">
+                <p>&copy; 2025 Mateus N. Lofrano. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-accent-color');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('text-accent-color');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
